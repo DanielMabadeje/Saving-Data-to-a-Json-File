@@ -20,11 +20,7 @@ class ProductController extends Controller
 
     public function addProduct(Request $request)
     {
-        // dd($request::all());
-
-
-        // var_dump($request->product);
-        // die;
+        
         $this->jsonData->products=$request->product;
 
         // Write File

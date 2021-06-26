@@ -21,14 +21,8 @@ Route::get('/', function () {
     $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
 
     $data=$jsonString;
-    // $data=json_encode($jsonString);
-    // $data = json_decode($jsonString, true);
     $data = json_decode($jsonString);
-    // $data=$data['products'];
+    
 
-    // $data = "";
-    // var_dump($data);
-
-    // die;
     return view('index', compact('data'));
 });
