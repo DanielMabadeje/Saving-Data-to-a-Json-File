@@ -69,7 +69,7 @@
                                 </thead>
                                 <tbody class="" id="products">
 
-                                {{-- @foreach($data['products'] as $product):
+                                @foreach($data['products'] as $product):
                                   <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $product['product_name'] }}</td>
@@ -79,7 +79,7 @@
                                   </tr>
 
                                 @endforeach;
-                                   --}}
+                                  
                                 </tbody>
                               </table>
                         </div>
@@ -95,7 +95,9 @@
 
         <script>
         
-        
+        var js_array = [<?php echo '"'.implode('","', $data).'"' ?>];
+
+        var productsTable=document.getElementById("products");
             
 
 
@@ -124,8 +126,22 @@
                 }
             }
 
-            function addProductHtml(params) {
+            function addProductHtml(data) {
                 
+
+                var tdHTML=``
+
+                data.forEach(product){
+                    tdHTML+=`<td>${product}</td>`
+                }
+
+                var totalValue=data.quantity*data.price
+                tdHTML+=`<td>${totalValue}</td>`
+
+                var tr=document.createElement("tr");
+                tr.appendChild(tdHTML);
+
+                productsTable.appendChild(tr)
             }
 
 

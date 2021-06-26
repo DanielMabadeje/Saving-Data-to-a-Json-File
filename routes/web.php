@@ -20,13 +20,14 @@ Route::get('/', function () {
 
     $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
 
-    $data=$jsonString;
+    // $data=$jsonString;
     // $data=json_encode($jsonString);
     // $data = json_decode($jsonString, true);
-    // $data = json_decode($jsonString);
+    $data = json_decode($jsonString);
+    // $data=$data['products'];
 
-    var_dump($data);
+    // var_dump($data);
 
-    die;
+    // die;
     return view('index', compact('data'));
 });

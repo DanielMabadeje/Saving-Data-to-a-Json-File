@@ -1,10 +1,10 @@
 {
     "products":[
-        [
+        {
             "product_name":"Rice",
             "quantity":"4",
             "price":10
-        ]
+        }
 
     ]
 }
