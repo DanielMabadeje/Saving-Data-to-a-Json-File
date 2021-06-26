@@ -71,6 +71,7 @@
                                 <tbody class="" id="products">
 
 
+                                    <?php $total_total=0 ?>
                                     @foreach($data->products as $product):
                                     <tr>
                                       <th scope="row">1</th>
@@ -81,7 +82,12 @@
                                       <td>{{ $product->quantity*$product->price }}</td>
                                     </tr>
   
+                                    <?php $total_total=$total_total+( $product->quantity*$product->price ) ?>
                                   @endforeach;
+
+                                  <tr>
+                                      <td id="total_total">{{  $total_total }}</td>
+                                  </tr>
                                 {{--  @foreach($data->products as $product):
                                   <tr>
                                     <th scope="row">1</th>
@@ -112,6 +118,7 @@
         var productsData=<?php echo json_encode($data->products) ?>
 
         var productsTable=document.getElementById("products");
+        var total_total=document.getElementById("total_total")
             
 
 
@@ -126,7 +133,6 @@
                         data[index]=formdata[index].value
                         
                     }
-                    console.log(data)
                     addProductToArray(data)
                 })
             });
@@ -140,11 +146,12 @@
                     "datetime":"{{ date('Y-m-d H:i:s') }}"
                 }
 
+                data.push(newObject.datetime);
 
                 
                 productsData.push(newObject);
-                sendData(data);
-                // addProductHtml(data)
+                // sendData(data);
+                addProductHtml(data)
             }
 
             function addProductHtml(data) {
@@ -152,19 +159,27 @@
 
                 var tdHTML=``
 
+                // console.log(data)
+                var totalValue=parseInt(data[1])*parseInt(data[2])
+
                 tdHTML+=`<td>1</td>`
                 data.forEach(function(product) {
                     // console.log(product);
                     tdHTML+=`<td>${product}</td>`
                 });
+                // tdHTML+=``
+                
 
-                var totalValue=Number(data.quantity)*Number(data.price)
+                console.log(data.quantity)
                 tdHTML+=`<td>${totalValue}</td>`
 
+
+                total_total.innerHTML=parseInt(total_total)+totalValue
                 var tr=document.createElement("tr");
                 // tr.appendChild(tdHTML);
 
-                productsTable.appendChild(tr)
+                // productsTable.appendChild(tr)
+                productsTable.insertBefore(tr, productsTable.childNodes[0]);
                 tr.innerHTML=tdHTML;
             }
 

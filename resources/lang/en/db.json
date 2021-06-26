@@ -1,6 +1,12 @@
 {
     "products": [
         {
+            "product_name": "Beans",
+            "quantity": "5",
+            "price": "100",
+            "datetime": "2021-06-26 21:33:20"
+        },
+        {
             "product_name": "Apple",
             "quantity": "40",
             "price": "50",
@@ -13,10 +19,22 @@
             "datetime": "2021-06-26 21:24:09"
         },
         {
-            "product_name": "Beans",
-            "quantity": "5",
-            "price": "100",
-            "datetime": "2021-06-26 21:33:20"
+            "product_name": "Glow4",
+            "quantity": "4",
+            "price": "5",
+            "datetime": "2021-06-26 21:33:36"
+        },
+        {
+            "product_name": "Glow4",
+            "quantity": "4",
+            "price": "5",
+            "datetime": "2021-06-26 21:33:36"
+        },
+        {
+            "product_name": "Glow4",
+            "quantity": "4",
+            "price": "5",
+            "datetime": "2021-06-26 21:33:36"
         }
     ]
 }
