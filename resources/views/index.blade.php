@@ -140,7 +140,7 @@
 
                 
                 productsData.push(newObject);
-                sendData();
+                sendData(data);
                 // addProductHtml(data)
             }
 
@@ -166,7 +166,7 @@
             }
 
 
-            function sendData() {
+            function sendData(data) {
 
                 var token = $('meta[name="csrf-token"]').attr('content');
                 $.ajax({

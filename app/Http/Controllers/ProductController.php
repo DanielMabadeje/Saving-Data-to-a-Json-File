@@ -38,6 +38,7 @@ class ProductController extends Controller
         http_response_code(200);
         return json_encode([
             "code"=>200,
+            "status"=>"success",
             "message"=>$message
         ]);
     }
