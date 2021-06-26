@@ -56,7 +56,7 @@
                         <div class="col-md-12 card mt-5">
 
 
-                        <?php var_dump($data) ?>
+                        {{--  <?php var_dump($data->products) ?>  --}}
                             <table class="table">
                                 <thead>
                                   <tr>
@@ -69,7 +69,18 @@
                                 </thead>
                                 <tbody class="" id="products">
 
-                                @foreach($data['products'] as $product):
+
+                                    @foreach($data->products as $product):
+                                    <tr>
+                                      <th scope="row">1</th>
+                                      <td>{{ $product->product_name }}</td>
+                                      <td>{{ $product->quantity }}</td>
+                                      <td>{{ $product->price }}</td>
+                                      <td>{{ $product->quantity*$product->price }}</td>
+                                    </tr>
+  
+                                  @endforeach;
+                                {{--  @foreach($data->products as $product):
                                   <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $product['product_name'] }}</td>
@@ -78,7 +89,7 @@
                                     <td>{{ $product['quantity']*$product['price'] }}</td>
                                   </tr>
 
-                                @endforeach;
+                                @endforeach;  --}}
                                   
                                 </tbody>
                               </table>
@@ -95,7 +106,8 @@
 
         <script>
         
-        // var js_array = [<?php echo '"'.implode('","', $data).'"' ?>];
+        
+        var productsData=<?php echo json_encode($data->products) ?>
 
         var productsTable=document.getElementById("products");
             
@@ -131,9 +143,12 @@
 
                 var tdHTML=``
 
-                data.forEach(product){
+                data.forEach(function(product) {
+                    // console.log(product);
                     tdHTML+=`<td>${product}</td>`
-                }
+                })
+                    // tdHTML+=`<td>${product}</td>`
+                // }
 
                 var totalValue=data.quantity*data.price
                 tdHTML+=`<td>${totalValue}</td>`

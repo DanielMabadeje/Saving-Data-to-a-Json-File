@@ -4,6 +4,11 @@
             "product_name":"Rice",
             "quantity":"4",
             "price":10
+        },
+        {
+            "product_name":"Plantain",
+            "quantity":"4",
+            "price":10
         }
 
     ]
