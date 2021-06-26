@@ -163,7 +163,24 @@ tdHTML+=`<td>1</td>`
 
 
             function sendData() {
-                
+
+                var token = $('meta[name="csrf-token"]').attr('content');
+                $.ajax({
+                    type: "POST", 
+                    dataType: "json", 
+                    url: "{{ url('/') }}",
+                    data: {
+                    product: productsData,
+                    _token: token
+                    },
+                success: function(response) {
+                    if (response.status == "success") {
+                        console.log(response);
+                    } else {
+                        console.log(response);
+                    }
+        }
+      });
             }
 
 
