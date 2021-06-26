@@ -172,7 +172,7 @@
                 $.ajax({
                     type: "POST", 
                     dataType: "json", 
-                    url: "{{ url('/') }}",
+                    url: "{{ url('api/') }}",
                     data: {
                     product: productsData,
                     _token: token

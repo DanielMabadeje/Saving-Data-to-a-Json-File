@@ -17,8 +17,20 @@ class ProductController extends Controller
     }
 
 
-    public function addProduct()
+    public function addProduct(Request $request)
     {
-        dd("hi");
+        dd($request::all());
+
+        $this->jsonData->products=$request::all();
+
+        return $this->success("Added Successfully");
+
+    }
+
+    public function success($message)
+    {
+        return json_encode([
+            "message"=>$message
+        ])
     }
 }
