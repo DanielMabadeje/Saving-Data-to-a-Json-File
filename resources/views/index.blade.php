@@ -54,6 +54,9 @@
 
 
                         <div class="col-md-12 card mt-5">
+
+
+                        <?php var_dump($data) ?>
                             <table class="table">
                                 <thead>
                                   <tr>
@@ -66,7 +69,7 @@
                                 </thead>
                                 <tbody class="" id="products">
 
-                                @foreach($data['products'] as $product):
+                                {{-- @foreach($data['products'] as $product):
                                   <tr>
                                     <th scope="row">1</th>
                                     <td>{{ $product['product_name'] }}</td>
@@ -76,7 +79,7 @@
                                   </tr>
 
                                 @endforeach;
-                                  
+                                   --}}
                                 </tbody>
                               </table>
                         </div>
@@ -91,8 +94,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" defer></script>
 
         <script>
+        
+        
             
-// var data={{ json_encode($data['products']) }}
+
 
             $(document).ready(function(){
                 $("#myForm").submit(function(event){
@@ -102,27 +107,20 @@
                     let data=[]
                     
                     for (let index = 0; index < formdata.length; index++) {
-                        // const element = array[index];
                         data[index]=formdata[index].value
                         
                     }
-
-                    // addProductToArray(data)
+                    console.log(data)
+                    addProductToArray(data)
                 })
-                // $("#submitBtn").click(function(){        
-                //     var formdata=$('#myForm').serializeArray()
-
-                //     console.log(formdata);
-                //     // $("#myForm").submit(); // Submit the form
-                // });
             });
 
 
-            function addProductToArray(params) {
+            function addProductToArray(data) {
                 var newObject={
-                    "product_name":"",
-                    "quantity":"",
-                    "price":""
+                    "product_name":data[0],
+                    "quantity":data[1],
+                    "price":data[2]
                 }
             }
 
