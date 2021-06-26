@@ -137,7 +137,11 @@
                     "price":data[2]
                 }
 
-                addProductHtml(data)
+
+                
+                productsData.push(newObject);
+                sendData();
+                // addProductHtml(data)
             }
 
             function addProductHtml(data) {
@@ -145,7 +149,7 @@
 
                 var tdHTML=``
 
-tdHTML+=`<td>1</td>`
+                tdHTML+=`<td>1</td>`
                 data.forEach(function(product) {
                     // console.log(product);
                     tdHTML+=`<td>${product}</td>`
@@ -175,7 +179,7 @@ tdHTML+=`<td>1</td>`
                     },
                 success: function(response) {
                     if (response.status == "success") {
-                        console.log(response);
+                        addProductHtml(data)
                     } else {
                         console.log(response);
                     }
