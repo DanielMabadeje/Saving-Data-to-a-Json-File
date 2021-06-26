@@ -95,7 +95,7 @@
 
         <script>
         
-        var js_array = [<?php echo '"'.implode('","', $data).'"' ?>];
+        // var js_array = [<?php echo '"'.implode('","', $data).'"' ?>];
 
         var productsTable=document.getElementById("products");
             
