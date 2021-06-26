@@ -21,6 +21,30 @@
         <div class="flex-center position-ref full-height">
             <div class="content bg-light">
                 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
                 <div class="container pt-5">
                     <div class="col-md-12 pt-5">
                         <div class="card  col-md-12 pb-4">
@@ -60,7 +84,7 @@
                             <table class="table">
                                 <thead>
                                   <tr>
-                                    <th scope="col">#</th>
+                                    
                                     <th scope="col">Product Name</th>
                                     <th scope="col">Quantity In Stock</th>
                                     <th scope="col">Price Per Item</th>
@@ -71,10 +95,10 @@
                                 <tbody class="" id="products">
 
 
-                                    <?php $total_total=0 ?>
+                                    <?php $total_total=0;?>
                                     @foreach($data->products as $product):
-                                    <tr>
-                                      <th scope="row">1</th>
+                                    <tr class="productvalue">
+                                      
                                       <td>{{ $product->product_name }}</td>
                                       <td>{{ $product->quantity }}</td>
                                       <td>{{ $product->price }}</td>
@@ -119,6 +143,7 @@
 
         var productsTable=document.getElementById("products");
         var total_total=document.getElementById("total_total")
+        var no =document.getElementsByClassName("no")
             
 
 
@@ -162,7 +187,8 @@
                 // console.log(data)
                 var totalValue=parseInt(data[1])*parseInt(data[2])
 
-                tdHTML+=`<td>1</td>`
+                var totalno= parseInt(no.length)+1
+                // tdHTML+=`<td>${totalno}</td>`
                 data.forEach(function(product) {
                     // console.log(product);
                     tdHTML+=`<td>${product}</td>`
@@ -174,8 +200,9 @@
                 tdHTML+=`<td>${totalValue}</td>`
 
 
-                total_total.innerHTML=parseInt(total_total)+totalValue
+                total_total.innerHTML=parseInt(total_total.innerHTML)+totalValue
                 var tr=document.createElement("tr");
+                tr.class="productvalue"
                 // tr.appendChild(tdHTML);
 
                 // productsTable.appendChild(tr)
@@ -201,9 +228,18 @@
                     } else {
                         console.log(response);
                     }
-        }
-      });
             }
+            });
+            }
+
+            var eachproduct=document.getElementsByClassName("productvalue");
+
+            for (let index = 0; index < eachproduct.length; index++) {
+                eachproduct.addEventListener("click",);
+                
+            }
+
+            function openMosal(param) {  }
 
 
         </script>
