@@ -32,6 +32,11 @@ class ProductController extends Controller
         return $this->success("Added Successfully");
 
     }
+    function date_compare($element1, $element2) {
+        $datetime1 = strtotime($element1['datetime']);
+        $datetime2 = strtotime($element2['datetime']);
+        return $datetime1 - $datetime2;
+    } 
 
     public function getProduct()
     {
@@ -40,6 +45,13 @@ class ProductController extends Controller
         // $data=$jsonString;
         $data = $this->jsonData;
     
+
+        // usort($data->products, 'date_compare');
+        usort($data->products, function ($element1, $element2) {
+            $datetime1 = strtotime($element1->datetime);
+            $datetime2 = strtotime($element2->datetime);
+            return $datetime2 - $datetime1;
+        } );
 
         return view('index', compact('data'));
     }
@@ -54,10 +66,6 @@ class ProductController extends Controller
         ]);
     }
 
-    function date_compare($element1, $element2) {
-        $datetime1 = strtotime($element1['datetime']);
-        $datetime2 = strtotime($element2['datetime']);
-        return $datetime1 - $datetime2;
-    } 
+  
       
 }

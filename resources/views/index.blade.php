@@ -64,6 +64,7 @@
                                     <th scope="col">Product Name</th>
                                     <th scope="col">Quantity In Stock</th>
                                     <th scope="col">Price Per Item</th>
+                                    <th scope="col">Datetime Submitted</th>
                                     <th scope="col">Total Value Number</th>
                                   </tr>
                                 </thead>
@@ -76,6 +77,7 @@
                                       <td>{{ $product->product_name }}</td>
                                       <td>{{ $product->quantity }}</td>
                                       <td>{{ $product->price }}</td>
+                                      <td>{{ $product->datetime }}</td>
                                       <td>{{ $product->quantity*$product->price }}</td>
                                     </tr>
   
@@ -134,7 +136,8 @@
                 var newObject={
                     "product_name":data[0],
                     "quantity":data[1],
-                    "price":data[2]
+                    "price":data[2],
+                    "datetime":"{{ date('Y-m-d H:i:s') }}"
                 }
 
 
