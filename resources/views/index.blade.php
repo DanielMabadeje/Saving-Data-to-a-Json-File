@@ -136,6 +136,8 @@
                     "quantity":data[1],
                     "price":data[2]
                 }
+
+                addProductHtml(data)
             }
 
             function addProductHtml(data) {
@@ -143,20 +145,20 @@
 
                 var tdHTML=``
 
+tdHTML+=`<td>1</td>`
                 data.forEach(function(product) {
                     // console.log(product);
                     tdHTML+=`<td>${product}</td>`
-                })
-                    // tdHTML+=`<td>${product}</td>`
-                // }
+                });
 
-                var totalValue=data.quantity*data.price
+                var totalValue=Number(data.quantity)*Number(data.price)
                 tdHTML+=`<td>${totalValue}</td>`
 
                 var tr=document.createElement("tr");
-                tr.appendChild(tdHTML);
+                // tr.appendChild(tdHTML);
 
                 productsTable.appendChild(tr)
+                tr.innerHTML=tdHTML;
             }
 
 
