@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,16 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    // return view('welcome');
+// Route::get('/', function () {
+//     // return view('welcome');
 
-    // Read File
+//     // Read File
 
-    $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
+//     $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
 
-    $data=$jsonString;
-    $data = json_decode($jsonString);
+//     $data=$jsonString;
+//     $data = json_decode($jsonString);
     
 
-    return view('index', compact('data'));
-});
+//     return view('index', compact('data'));
+// });
+
+Route::get('/', [ProductController::class, "getProduct"]);

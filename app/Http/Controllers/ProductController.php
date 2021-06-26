@@ -35,7 +35,13 @@ class ProductController extends Controller
 
     public function getProduct()
     {
-        # code...
+
+        // $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
+        // $data=$jsonString;
+        $data = $this->jsonData;
+    
+
+        return view('index', compact('data'));
     }
 
     public function success($message)
