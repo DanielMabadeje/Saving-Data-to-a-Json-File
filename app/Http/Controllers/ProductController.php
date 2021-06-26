@@ -33,6 +33,11 @@ class ProductController extends Controller
 
     }
 
+    public function getProduct()
+    {
+        # code...
+    }
+
     public function success($message)
     {
         http_response_code(200);
@@ -42,4 +47,11 @@ class ProductController extends Controller
             "message"=>$message
         ]);
     }
+
+    function date_compare($element1, $element2) {
+        $datetime1 = strtotime($element1['datetime']);
+        $datetime2 = strtotime($element2['datetime']);
+        return $datetime1 - $datetime2;
+    } 
+      
 }
