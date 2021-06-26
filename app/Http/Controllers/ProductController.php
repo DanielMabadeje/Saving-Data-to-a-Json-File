@@ -19,6 +19,6 @@ class ProductController extends Controller
 
     public function addProduct()
     {
-        # code...
+        dd("hi");
     }
 }
