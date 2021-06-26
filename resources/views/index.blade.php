@@ -26,24 +26,24 @@
                         <div class="card  col-md-12 pb-4">
                             <h2 class="pt-5">Add Product</h2>
                             <div class="form mt-5 ">
-                                <form class="">
+                                <form action=""class="" id="myForm" method="post">
                                     <div class="form-row">
                                        <div class="form-group col-md-4">
                                            <label for="formGroupExampleInput">Product Name</label>
-                                           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name Of Product">
+                                           <input type="text" class="form-control" name="product_name" id="formGroupExampleInput" placeholder="Name Of Product">
                                          </div>
                                          <div class="form-group col-md-3">
                                            <label for="formGroupExampleInput2">Quantity In Stock</label>
-                                           <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Quantity...">
+                                           <input type="number" class="form-control" name="quantity" id="formGroupExampleInput2" placeholder="Quantity...">
                                          </div>
        
                                          <div class="form-group col-md-3">
                                            <label for="formGroupExampleInput2">Price Per Item</label>
-                                           <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Price..">
+                                           <input type="number" class="form-control" name="price" id="formGroupExampleInput2" placeholder="Price..">
                                          </div>
        
                                          <div class="form-group col-md-1 mt-4">
-                                           <button type="submit" class="btn btn-primary mt-2">Add Product</button>
+                                           <button type="submit" id="submitBtn" class="btn btn-primary mt-2">Add Product</button>
                                            
                                          </div>
                                      </div> 
@@ -84,5 +84,58 @@
                 </div>
             </div>
         </div>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" defer></script>
+
+        <script>
+            
+// var data={{ json_encode($data['products']) }}
+
+            $(document).ready(function(){
+                $("#myForm").submit(function(event){
+                    event.preventDefault();
+                    var formdata=$('#myForm').serializeArray()
+                    console.log(formdata);
+                    let data=[]
+                    
+                    for (let index = 0; index < formdata.length; index++) {
+                        // const element = array[index];
+                        data[index]=formdata[index].value
+                        
+                    }
+
+                    // addProductToArray(data)
+                })
+                // $("#submitBtn").click(function(){        
+                //     var formdata=$('#myForm').serializeArray()
+
+                //     console.log(formdata);
+                //     // $("#myForm").submit(); // Submit the form
+                // });
+            });
+
+
+            function addProductToArray(params) {
+                var newObject={
+                    "product_name":"",
+                    "quantity":"",
+                    "price":""
+                }
+            }
+
+            function addProductHtml(params) {
+                
+            }
+
+
+            function sendData() {
+                
+            }
+
+
+        </script>
     </body>
 </html>
