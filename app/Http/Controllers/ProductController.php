@@ -22,7 +22,10 @@ class ProductController extends Controller
     {
         // dd($request::all());
 
-        $this->jsonData->products=$request->all();
+
+        // var_dump($request->product);
+        // die;
+        $this->jsonData->products=$request->product;
 
         // Write File
 
