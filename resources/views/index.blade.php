@@ -19,8 +19,35 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            <div class="content">
+            <div class="content bg-light">
                 
+                <div class="container">
+                    <div class="col-md-12">
+                        <form>
+
+
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-4">
+                                    <label for="formGroupExampleInput">Product Name</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                  </div>
+                                  <div class="form-group col-md-4">
+                                    <label for="formGroupExampleInput2">Another label</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                  </div>
+
+                                  <div class="form-group col-md-4">
+                                    <label for="formGroupExampleInput2">Another label</label>
+                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+                                  </div>
+                              </div>
+
+                            
+                          </form>
+                    </div>
+                </div>
             </div>
         </div>
     </body>
