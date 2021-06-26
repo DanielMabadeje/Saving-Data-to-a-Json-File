@@ -21,25 +21,35 @@
         <div class="flex-center position-ref full-height">
             <div class="content bg-light">
                 
-                <div class="container">
-                    <div class="col-md-12">
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label for="formGroupExampleInput">Product Name</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
-                                  </div>
-                                  <div class="form-group col-md-4">
-                                    <label for="formGroupExampleInput2">Quantity In Stock</label>
-                                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                                  </div>
-
-                                  <div class="form-group col-md-4">
-                                    <label for="formGroupExampleInput2">Price Per Item</label>
-                                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-                                  </div>
-                              </div> 
-                          </form>
+                <div class="container pt-5">
+                    <div class="col-md-12 pt-5">
+                        <div class="card  col-md-12">
+                            <h2 class="pt-5">Add Product</h2>
+                            <div class="form mt-5 ">
+                                <form class="">
+                                    <div class="form-row">
+                                       <div class="form-group col-md-4">
+                                           <label for="formGroupExampleInput">Product Name</label>
+                                           <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name Of Product">
+                                         </div>
+                                         <div class="form-group col-md-3">
+                                           <label for="formGroupExampleInput2">Quantity In Stock</label>
+                                           <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Quantity...">
+                                         </div>
+       
+                                         <div class="form-group col-md-3">
+                                           <label for="formGroupExampleInput2">Price Per Item</label>
+                                           <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Price..">
+                                         </div>
+       
+                                         <div class="form-group col-md-1 mt-4">
+                                           <button type="submit" class="btn btn-primary mt-2">Add Product</button>
+                                           
+                                         </div>
+                                     </div> 
+                                 </form>   
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
