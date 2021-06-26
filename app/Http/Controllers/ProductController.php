@@ -14,14 +14,21 @@ class ProductController extends Controller
         $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
 
         $this->jsonData=$jsonString;
+        $this->jsonData=json_decode($this->jsonData);
     }
 
 
     public function addProduct(Request $request)
     {
-        dd($request::all());
+        // dd($request::all());
 
-        $this->jsonData->products=$request::all();
+        $this->jsonData->products=$request->all();
+
+        // Write File
+
+        $newJsonString = json_encode($this->jsonData, JSON_PRETTY_PRINT);
+
+        file_put_contents(base_path('resources/lang/en/db.json'), stripslashes($newJsonString));
 
         return $this->success("Added Successfully");
 
@@ -29,8 +36,10 @@ class ProductController extends Controller
 
     public function success($message)
     {
+        http_response_code(200);
         return json_encode([
+            "code"=>200,
             "message"=>$message
-        ])
+        ]);
     }
 }
