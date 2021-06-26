@@ -7,9 +7,13 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
+
+    public $jsonData;
     public function __construct()
     {
-        # code...
+        $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
+
+        $this->jsonData=$jsonString;
     }
 
 
