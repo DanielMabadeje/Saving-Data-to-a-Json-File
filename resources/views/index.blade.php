@@ -65,12 +65,17 @@
                                   </tr>
                                 </thead>
                                 <tbody class="" id="products">
+
+                                @foreach($data['products'] as $product):
                                   <tr>
                                     <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>fs</td>
+                                    <td>{{ $product['product_name'] }}</td>
+                                    <td>{{ $product['quantity'] }}</td>
+                                    <td>{{ $product['price'] }}</td>
+                                    <td>{{ $product['quantity']*$product['price'] }}</td>
                                   </tr>
+
+                                @endforeach;
                                   
                                 </tbody>
                               </table>

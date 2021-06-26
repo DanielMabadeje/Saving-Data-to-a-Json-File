@@ -15,5 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    return view('index');
+
+    // Read File
+
+    $jsonString = file_get_contents(base_path('resources/lang/en/db.json'));
+
+    // $data=$jsonString;
+    $data = json_decode($jsonString, true);
+    return view('index', compact('data'));
 });
