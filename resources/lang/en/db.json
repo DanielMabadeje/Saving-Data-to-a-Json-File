@@ -9,36 +9,6 @@
             "product_name": "Plantain",
             "quantity": "4",
             "price": "10"
-        },
-        {
-            "product_name": "Apple",
-            "quantity": "6",
-            "price": "30"
-        },
-        {
-            "product_name": "Apple",
-            "quantity": "6",
-            "price": "30"
-        },
-        {
-            "product_name": "Gio",
-            "quantity": "44",
-            "price": "5"
-        },
-        {
-            "product_name": "Gio",
-            "quantity": "44",
-            "price": "5"
-        },
-        {
-            "product_name": "Gio",
-            "quantity": "44",
-            "price": "5"
-        },
-        {
-            "product_name": "Hi",
-            "quantity": "5",
-            "price": "7"
         }
     ]
 }
