@@ -34,11 +34,32 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <div class="form ">
+          <form action=""class="" method="post" id="modalForm">
+            <div class="form-group col-md-12">
+              <label for="formGroupExampleInput">Product Name</label>
+              <input type="text" class="form-control" name="product_name" id="formGroupExampleInputproduct" placeholder="Name Of Product">
+            </div>
+
+            <div class="form-group col-md-12">
+              <label for="formGroupExampleInput">Quantity In Stock</label>
+              <input type="text" class="form-control" name="quantity" id="formGroupExampleInputquantity" placeholder="Name Of Product">
+            </div>
+
+
+            <div class="form-group col-md-12">
+              <label for="formGroupExampleInput">Price Per Item</label>
+              <input type="text" class="form-control" name="price" id="formGroupExampleInputprice" placeholder="Name Of Product">
+            </div>
+
+          {{-- </form> --}}
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        {{-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> --}}
+        {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
+        <input type="submit" value="Save changes" class="btn btn-primary">
+      </form>
       </div>
     </div>
   </div>
@@ -136,7 +157,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" defer></script>
 
-        <script>
+    <script>
         
         
         var productsData=<?php echo json_encode($data->products) ?>
@@ -144,6 +165,9 @@
         var productsTable=document.getElementById("products");
         var total_total=document.getElementById("total_total")
         var no =document.getElementsByClassName("no")
+        var modal=document.getElementsByClassName("modal")[0]
+
+        var formerTotalValue=""
             
 
 
@@ -174,8 +198,9 @@
                 data.push(newObject.datetime);
 
                 
-                productsData.push(newObject);
-                // sendData(data);
+                // productsData.push(newObject);
+                productsData.unshift(newObject)
+                sendData(data);
                 addProductHtml(data)
             }
 
@@ -208,6 +233,8 @@
                 // productsTable.appendChild(tr)
                 productsTable.insertBefore(tr, productsTable.childNodes[0]);
                 tr.innerHTML=tdHTML;
+
+                addListeners()
             }
 
 
@@ -224,7 +251,12 @@
                     },
                 success: function(response) {
                     if (response.status == "success") {
-                        addProductHtml(data)
+                        if (data != "" || data!=null){
+                          // addProductHtml(data)
+                        }  else {
+
+                        }
+                        addListeners()
                     } else {
                         console.log(response);
                     }
@@ -232,16 +264,117 @@
             });
             }
 
+
+
+
+
+
+
+
             var eachproduct=document.getElementsByClassName("productvalue");
 
-            for (let index = 0; index < eachproduct.length; index++) {
-                eachproduct.addEventListener("click",);
-                
+            function addListeners() { 
+              for (let index = 0; index < eachproduct.length; index++) {
+                // eachproduct[index].addEventListener("click", openModal);
+                eachproduct[index].addEventListener("click", event => {
+                  openModal(event, index)
+              })
             }
+             }
 
-            function openMosal(param) {  }
+            function openModal(e, index) { 
+              console.log(e, index);
+              let currentIndex=index
+
+              // eachproduct[index]
+              let productData=productsData[index]
+
+              modal.style.display="block"
+              modal.classList.remove("fade")
+
+              let closebtn=modal.getElementsByClassName("close")
+
+              for (let index = 0; index < closebtn.length; index++) {
+                closebtn[index].addEventListener("click", closemodal);
+                
+              }
 
 
-        </script>
+
+              productInput=document.getElementById("formGroupExampleInputproduct")
+              quantityInput=document.getElementById("formGroupExampleInputquantity")
+              priceInput=document.getElementById("formGroupExampleInputprice")
+              productInput.value=productData.product_name
+              quantityInput.value=productData.quantity
+              priceInput.value=productData.price
+
+
+              formerTotalValue=parseInt(productData.quantity)*parseInt(productData.price)
+
+
+
+
+              
+                $("#modalForm").submit(function(event){
+                    event.preventDefault();
+                    var formdata=$('#modalForm').serializeArray()
+                    
+                    let data=[]
+                    
+                    for (let index = 0; index < formdata.length; index++) {
+                        data[index]=formdata[index].value
+                        
+                    }
+                    // addProductToArray(data)
+                    updateProductinArray(currentIndex, data)
+
+                    
+                })
+            
+             }
+
+
+             function updateProductinArray(index, data) {
+
+              // console.log("hi")
+              // console.log(data)
+              productsData[index].product_name=data[0]
+              productsData[index].quantity=data[1]
+              productsData[index].price=data[2]
+
+
+
+              
+              sendData();
+
+              eachproduct[index].getElementsByTagName("td")[0].innerHTML=data[0]
+                    eachproduct[index].getElementsByTagName("td")[1].innerHTML=data[1]
+                    eachproduct[index].getElementsByTagName("td")[2].innerHTML=data[2]
+
+
+
+                    var newTotalValue=parseInt(data[1])*parseInt(data[2])
+                    eachproduct[index].getElementsByTagName("td")[4].innerHTML=newTotalValue
+
+
+                    total_total.innerHTML=parseInt(total_total.innerHTML)-formerTotalValue+newTotalValue
+                    closemodal()
+             }
+
+
+             function closemodal(){
+              modal.style.display="none"
+              modal.classList.add("fade")
+             }
+
+
+
+
+
+           
+
+             addListeners()
+
+      </script>
     </body>
 </html>

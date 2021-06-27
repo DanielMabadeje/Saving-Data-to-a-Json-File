@@ -1,6 +1,24 @@
 {
     "products": [
         {
+            "product_name": "Glow10",
+            "quantity": "10",
+            "price": "10",
+            "datetime": "2021-06-26 21:33:36"
+        },
+        {
+            "product_name": "Glow4",
+            "quantity": "4",
+            "price": "5",
+            "datetime": "2021-06-26 21:33:36"
+        },
+        {
+            "product_name": "Glow4",
+            "quantity": "4",
+            "price": "5",
+            "datetime": "2021-06-26 21:33:36"
+        },
+        {
             "product_name": "Beans",
             "quantity": "5",
             "price": "100",
@@ -17,24 +35,6 @@
             "quantity": "44",
             "price": "3",
             "datetime": "2021-06-26 21:24:09"
-        },
-        {
-            "product_name": "Glow4",
-            "quantity": "4",
-            "price": "5",
-            "datetime": "2021-06-26 21:33:36"
-        },
-        {
-            "product_name": "Glow4",
-            "quantity": "4",
-            "price": "5",
-            "datetime": "2021-06-26 21:33:36"
-        },
-        {
-            "product_name": "Glow4",
-            "quantity": "4",
-            "price": "5",
-            "datetime": "2021-06-26 21:33:36"
         }
     ]
 }
