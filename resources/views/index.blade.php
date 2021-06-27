@@ -101,7 +101,7 @@
                         <div class="col-md-12 card mt-5">
 
 
-                        {{--  <?php var_dump($data->products) ?>  --}}
+                        
                             <table class="table">
                                 <thead>
                                   <tr>
@@ -133,17 +133,7 @@
                                   <tr>
                                       <td id="total_total">{{  $total_total }}</td>
                                   </tr>
-                                {{--  @foreach($data->products as $product):
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>{{ $product['product_name'] }}</td>
-                                    <td>{{ $product['quantity'] }}</td>
-                                    <td>{{ $product['price'] }}</td>
-                                    <td>{{ $product['quantity']*$product['price'] }}</td>
-                                  </tr>
-
-                                @endforeach;  --}}
-                                  
+                               
                                 </tbody>
                               </table>
                         </div>
