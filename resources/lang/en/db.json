@@ -5,48 +5,6 @@
             "quantity": "7",
             "price": "5",
             "datetime": "2021-06-27 17:59:53"
-        },
-        {
-            "product_name": "Chicken",
-            "quantity": "6",
-            "price": "10",
-            "datetime": "2021-06-27 17:57:46"
-        },
-        {
-            "product_name": "Glow10",
-            "quantity": "10",
-            "price": "10",
-            "datetime": "2021-06-26 21:33:36"
-        },
-        {
-            "product_name": "Glow4",
-            "quantity": "4",
-            "price": "5",
-            "datetime": "2021-06-26 21:33:36"
-        },
-        {
-            "product_name": "Glow4",
-            "quantity": "4",
-            "price": "5",
-            "datetime": "2021-06-26 21:33:36"
-        },
-        {
-            "product_name": "Beans",
-            "quantity": "5",
-            "price": "100",
-            "datetime": "2021-06-26 21:33:20"
-        },
-        {
-            "product_name": "Apple",
-            "quantity": "40",
-            "price": "50",
-            "datetime": "2021-06-26 21:25:40"
-        },
-        {
-            "product_name": "Gio",
-            "quantity": "44",
-            "price": "3",
-            "datetime": "2021-06-26 21:24:09"
         }
     ]
 }
