@@ -101,11 +101,11 @@
                         <div class="col-md-12 card mt-5">
 
 
-                        
+                        <h2>All Products</h2>
+                        <h6 class="mt-5">Click On Product to edit</h6>
                             <table class="table">
                                 <thead>
                                   <tr>
-                                    
                                     <th scope="col">Product Name</th>
                                     <th scope="col">Quantity In Stock</th>
                                     <th scope="col">Price Per Item</th>
@@ -131,7 +131,9 @@
                                   @endforeach;
 
                                   <tr>
-                                      <td id="total_total">{{  $total_total }}</td>
+                                      <td class="mr-auto text-left"><strong>Total</strong></td>
+                                      
+                                      <td class="ml-auto  text-right" id="total_total">{{  $total_total }}</td>
                                   </tr>
                                
                                 </tbody>
@@ -217,12 +219,13 @@
 
                 total_total.innerHTML=parseInt(total_total.innerHTML)+totalValue
                 var tr=document.createElement("tr");
-                tr.class="productvalue"
+                // tr.class="productvalue"
                 // tr.appendChild(tdHTML);
 
                 // productsTable.appendChild(tr)
                 productsTable.insertBefore(tr, productsTable.childNodes[0]);
                 tr.innerHTML=tdHTML;
+                tr.classList.add("productvalue")
 
                 addListeners()
             }
